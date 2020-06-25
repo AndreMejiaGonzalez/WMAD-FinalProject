@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 23363111}
   - component: {fileID: 23363110}
   - component: {fileID: 23363109}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9929,6 +9929,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 623663824}
     m_Modifications:
+    - target: {fileID: 1825814816815094123, guid: 3347119d43942574e9971eb2f11d1c60,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.235
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825814816815094123, guid: 3347119d43942574e9971eb2f11d1c60,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.004
+      objectReference: {fileID: 0}
     - target: {fileID: 1934428611955672099, guid: 3347119d43942574e9971eb2f11d1c60,
         type: 3}
       propertyPath: m_Name
@@ -9988,11 +9998,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7747594167257312087, guid: 3347119d43942574e9971eb2f11d1c60,
-        type: 3}
-      propertyPath: moveSpeed
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3347119d43942574e9971eb2f11d1c60, type: 3}
