@@ -6,6 +6,10 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
     public Transform firePoint;
+    public GameObject defaultShot;
+    public GameObject waveShot;
+    public GameObject spreadShot;
+    public GameObject bombShot;
     public GameObject projectile;
     public float moveSpeed;
     public float fireRate;
@@ -24,6 +28,7 @@ public class PlayerController : MonoBehaviour
     {
         movementHandler();
         FireHandler();
+        ChangeShot();
     }
 
     void movementHandler()
@@ -37,8 +42,29 @@ public class PlayerController : MonoBehaviour
         fireCounter -= Time.deltaTime;
         if(fireCounter <= 0)
         {
-            Instantiate(projectile, firePoint.position, new Quaternion(0,0,0,0));
+            Instantiate(projectile, firePoint.position, firePoint.rotation);
             fireCounter = fireRate;
+        }
+    }
+
+    void ChangeShot()
+    {
+        if(Input.GetKey("1"))
+        {
+            projectile = defaultShot;
+            fireRate = 0.5f;
+        }else if(Input.GetKey("2"))
+        {
+            projectile = waveShot;
+            fireRate = 0.1f;
+        }else if(Input.GetKey("3"))
+        {
+            projectile = spreadShot;
+            fireRate = 1;
+        }else if(Input.GetKey("4"))
+        {
+            projectile = bombShot;
+            fireRate = 2;
         }
     }
 }
