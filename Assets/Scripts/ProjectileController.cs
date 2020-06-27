@@ -28,6 +28,9 @@ public class ProjectileController : MonoBehaviour
         {
             Instantiate(explode, transform.position, transform.rotation);
         }
-        Destroy(this.gameObject);
+        if(this.gameObject.tag != "WaveShot")
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

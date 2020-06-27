@@ -8,6 +8,9 @@ TagManager:
   - WaveShot
   - SpreadShot
   - BombShot
+  - WeaponPickup
+  - LifePickup
+  - ShieldPickup
   layers:
   - Default
   - TransparentFX
@@ -20,9 +23,9 @@ TagManager:
   - Player
   - Bounds
   - Player Projectile
-  - 
-  - 
-  - 
+  - Pickups
+  - Shield
+  - IF
   - 
   - 
   - 
