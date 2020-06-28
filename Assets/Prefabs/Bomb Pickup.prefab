@@ -144,3 +144,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 4573112970033664661, guid: ac5bdced2a054644b9b615f3096f6a91, type: 3}
   fireRate: 2
+  duration: 5

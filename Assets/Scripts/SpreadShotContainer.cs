@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class SpreadShotContainer : MonoBehaviour
 {
-    void Update()
-    {
-        Destroy(this.gameObject, 3);
+    public float duration;
+
+    private void Awake() {
+        Destroy(this.gameObject, duration);
     }
 }

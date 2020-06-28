@@ -4,23 +4,17 @@ using UnityEngine;
 
 public class ProjectileController : MonoBehaviour
 {
-    public Rigidbody2D rb;
     public GameObject explode;
     public float shotSpeed;
+    public float duration;
 
     private void Awake() {
-        rb = GetComponent<Rigidbody2D>();
-    }
-
-    void Start()
-    {
-        
+        Destroy(this.gameObject, duration);
     }
 
     void Update()
     {
-        rb.velocity = this.transform.up * shotSpeed;
-        Destroy(this.gameObject, 3);
+        transform.position += this.transform.up * shotSpeed * Time.deltaTime;
     }
     
     private void OnCollisionEnter2D(Collision2D other) {
