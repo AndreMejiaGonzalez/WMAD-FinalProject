@@ -89,7 +89,10 @@ public class PlayerController : MonoBehaviour
                 shield.SetActive(false);
             } else
             {
-                lives--;
+                if(lives > 0)
+                {
+                    lives--;
+                }
                 projectile = defaultShot;
                 fireRate = 0.5f;
             }

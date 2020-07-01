@@ -17,6 +17,7 @@ public class PickupController : MonoBehaviour
         if(this.gameObject.tag == "WeaponPickup")
         {
             player.projectile = weapon;
+            player.canFire = true;
             player.fireRate = fireRate;
         } else if(this.gameObject.tag == "LifePickup")
         {
