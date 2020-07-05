@@ -19,9 +19,9 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     public bool canFire;
     public float fireRate;
-    public float fireCounter;
+    private float fireCounter;
     public bool isHurt;
-    public float iFCounter;
+    private float iFCounter;
     public float iFTime;
 
     private void Awake() {
