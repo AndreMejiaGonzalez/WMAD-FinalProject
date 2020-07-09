@@ -10,15 +10,15 @@ public class EnemyController : MonoBehaviour
     public float moveSpeed;
     public float rotationSpeed;
     private float rotationCounter;
-    private float rotateSide;
-    public bool shouldFire;
+    private Vector2 rotateSide;
     public float fireRate;
     private float fireCounter;
 
     private void Awake()
     {
         playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        rotateSide = 135;
+        rotationCounter = rotationSpeed;
+        rotateSide = Vector2.right;
     }
 
     void Update()
@@ -32,6 +32,12 @@ public class EnemyController : MonoBehaviour
         } else if(this.gameObject.tag == "B-type")
         {
             B_TypeHandler();
+        } else if(this.gameObject.tag == "Sh-type")
+        {
+            Sh_TypeHandler();
+        } else if(this.gameObject.tag == "L-type")
+        {
+            L_TypeHandler();
         }
         FireHandler();
     }
@@ -42,7 +48,7 @@ public class EnemyController : MonoBehaviour
         transform.position.x - playerPos.position.x < 1 &&
         playerPos.position.y < transform.position.y)
         {
-            transform.rotation = new Quaternion(0, 0, 1, 0);
+            transform.rotation = Quaternion.Euler(0, 0, 180);
         }
         transform.position += transform.up * moveSpeed * Time.deltaTime;
     }
@@ -63,16 +69,47 @@ public class EnemyController : MonoBehaviour
         rotationCounter -= Time.deltaTime;
         if(rotationCounter <= 0)
         {
-            transform.rotation = Quaternion.Euler(0, 0, rotateSide);
             rotateSide = rotateSide * -1;
             rotationCounter = rotationSpeed;
         }
-        transform.position += transform.up * moveSpeed * Time.deltaTime;
+        transform.Translate((Vector2.down + rotateSide) * moveSpeed * Time.deltaTime, Space.World);
+    }
+
+    void Sh_TypeHandler()
+    {
+        if(!(transform.position.y <= 4))
+        {
+            transform.position += transform.up * moveSpeed * Time.deltaTime;
+        } else {
+            if(transform.position.x >= 10 || transform.position.x <= -10)
+            {
+                rotateSide = rotateSide * -1;
+            }
+            transform.position += new Vector3(rotateSide.x, rotateSide.y, 0) *moveSpeed * Time.deltaTime;
+        }
+    }
+
+    void L_TypeHandler()
+    {
+        if(!(transform.position.y <= 0))
+        {
+            transform.position += transform.up * moveSpeed * Time.deltaTime;
+        } else {
+            if(rotationCounter > 0)
+            {
+                Vector3 target = playerPos.position - transform.position;
+                transform.up = new Vector3(target.x, target.y, 0);
+                rotationCounter -= Time.deltaTime;
+                moveSpeed = 25;
+            } else {
+                transform.position += transform.up * moveSpeed * Time.deltaTime;
+            }
+        }
     }
 
     void FireHandler()
     {
-        if(shouldFire)
+        if(firePoints.Length > 0)
         {
             fireCounter -= Time.deltaTime;
             if(fireCounter <= 0)

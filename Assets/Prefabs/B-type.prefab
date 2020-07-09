@@ -189,7 +189,6 @@ MonoBehaviour:
   - {fileID: 58404680}
   projectile: {fileID: 8046297787217614838, guid: b215d66d114e10845b2da18a52dd6021,
     type: 3}
-  moveSpeed: 5
+  moveSpeed: 3
   rotationSpeed: 0.5
-  shouldFire: 1
-  fireRate: 1
+  fireRate: 0.5

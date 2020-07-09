@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3769039396943753083}
   - component: {fileID: 3769039396943753060}
   - component: {fileID: 3769039396943753061}
+  - component: {fileID: 763095986663854500}
   m_Layer: 14
   m_Name: L-type
   m_TagString: L-type
@@ -168,3 +169,20 @@ PolygonCollider2D:
       - {x: 0.15810671, y: 0.00209241}
       - {x: 0.21700907, y: 0.15697175}
       - {x: 0.21763068, y: 0.21910165}
+--- !u!114 &763095986663854500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3769039396943753062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8ba298b8f2e42042a5dbf38965d046e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoints: []
+  projectile: {fileID: 0}
+  moveSpeed: 15
+  rotationSpeed: 1
+  fireRate: 0
