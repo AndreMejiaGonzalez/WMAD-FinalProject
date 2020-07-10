@@ -6,11 +6,6 @@ public class PickupController : MonoBehaviour
 {
     public GameObject weapon;
     public float fireRate;
-    public float duration;
-
-    private void Awake() {
-        Destroy(this.gameObject, duration);
-    }
 
     private void OnCollisionEnter2D(Collision2D other) {
         PlayerController player = other.gameObject.GetComponent<PlayerController>();

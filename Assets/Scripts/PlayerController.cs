@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
-{ 
-    
-    // public GameObject defaultShot;
-    // public GameObject waveShot;
-    // public GameObject spreadShot;
-    // public GameObject bombShot;
+{
+    public GameObject waveShot;
+    public GameObject spreadShot;
+    public GameObject bombShot;
     private SpriteRenderer render;
     private Rigidbody2D rb;
     public GameObject shield;
@@ -39,7 +37,7 @@ public class PlayerController : MonoBehaviour
         movementHandler();
         FireHandler();
         iFHandler();
-        // ChangeShot();
+        ChangeShot();
     }
 
     void movementHandler()
@@ -94,30 +92,37 @@ public class PlayerController : MonoBehaviour
                     lives--;
                 }
                 projectile = defaultShot;
-                fireRate = 0.5f;
+                fireRate = 0.25f;
             }
             isHurt = true;
         }
     }
 
-    // void ChangeShot()
-    // {
-    //     if(Input.GetKey("1"))
-    //     {
-    //         projectile = defaultShot;
-    //         fireRate = 0.5f;
-    //     }else if(Input.GetKey("2"))
-    //     {
-    //         projectile = waveShot;
-    //         fireRate = 0.1f;
-    //     }else if(Input.GetKey("3"))
-    //     {
-    //         projectile = spreadShot;
-    //         fireRate = 1;
-    //     }else if(Input.GetKey("4"))
-    //     {
-    //         projectile = bombShot;
-    //         fireRate = 2;
-    //     }
-    // }
+    void ChangeShot()
+    {
+        if(Input.GetKey("1"))
+        {
+            projectile = defaultShot;
+            fireRate = 0.25f;
+            canFire = true;
+        }else if(Input.GetKey("2"))
+        {
+            projectile = waveShot;
+            fireRate = 0.1f;
+            canFire = true;
+        }else if(Input.GetKey("3"))
+        {
+            projectile = spreadShot;
+            fireRate = 0.5f;
+            canFire = true;
+        }else if(Input.GetKey("4"))
+        {
+            projectile = bombShot;
+            fireRate = 1;
+            canFire = true;
+        }else if(Input.GetKey("5"))
+        {
+            shield.SetActive(true);
+        }
+    }
 }

@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
     private Transform playerPos;
     public Transform[] firePoints;
     public GameObject projectile;
+    public float hp;
     public float moveSpeed;
     public float rotationSpeed;
     private float rotationCounter;
@@ -39,6 +40,12 @@ public class EnemyController : MonoBehaviour
         {
             L_TypeHandler();
         }
+
+        if(hp <= 0)
+        {
+            Die();
+        }
+
         FireHandler();
     }
 
@@ -121,5 +128,10 @@ public class EnemyController : MonoBehaviour
                 fireCounter = fireRate;
             }
         }
+    }
+
+    void Die()
+    {
+        Destroy(this.gameObject);
     }
 }

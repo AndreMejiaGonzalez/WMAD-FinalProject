@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8306517961058470023}
   - component: {fileID: 8306517961058470016}
   - component: {fileID: 8306517961058470017}
+  - component: {fileID: -1636707320011470709}
   m_Layer: 11
   m_Name: Shield Pickup
   m_TagString: ShieldPickup
@@ -144,4 +145,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
   fireRate: 0
+--- !u!114 &-1636707320011470709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8306517961058470018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a75017fe17d6ac40bafd515f2253787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   duration: 5

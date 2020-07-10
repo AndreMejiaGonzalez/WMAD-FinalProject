@@ -16,6 +16,7 @@ TagManager:
   - B-type
   - Sh-type
   - L-type
+  - Kill Plane
   layers:
   - Default
   - TransparentFX

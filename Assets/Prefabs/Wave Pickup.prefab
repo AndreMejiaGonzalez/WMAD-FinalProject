@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9071028868153686034}
   - component: {fileID: 9071028868153686035}
   - component: {fileID: 9071028868153686036}
+  - component: {fileID: -8338892219069958206}
   m_Layer: 11
   m_Name: Wave Pickup
   m_TagString: WeaponPickup
@@ -144,4 +145,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 5070315268531541349, guid: d6e2f73424e0d084ebd208be4a84b5a8, type: 3}
   fireRate: 0.1
+--- !u!114 &-8338892219069958206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9071028868153686037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a75017fe17d6ac40bafd515f2253787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   duration: 5

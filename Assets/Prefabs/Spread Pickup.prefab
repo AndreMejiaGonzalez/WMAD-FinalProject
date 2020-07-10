@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5340875157074418961}
   - component: {fileID: 5340875157074418960}
   - component: {fileID: 5340875157074418963}
+  - component: {fileID: 7966414870112891763}
   m_Layer: 11
   m_Name: Spread Pickup
   m_TagString: WeaponPickup
@@ -143,5 +144,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 9205425807815638001, guid: 9b686ff96871b354194a6ee63edbb0ba, type: 3}
-  fireRate: 1
+  fireRate: 0.5
+--- !u!114 &7966414870112891763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5340875157074418962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a75017fe17d6ac40bafd515f2253787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   duration: 5

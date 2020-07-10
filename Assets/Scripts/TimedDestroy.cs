@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpreadShotContainer : MonoBehaviour
+public class TimedDestroy : MonoBehaviour
 {
     public float duration;
 

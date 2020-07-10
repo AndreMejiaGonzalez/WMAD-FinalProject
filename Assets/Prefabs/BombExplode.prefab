@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5183397779681512891}
   - component: {fileID: 5183397779681512894}
   - component: {fileID: 4226046429213536083}
+  - component: {fileID: 3485748792616030595}
   m_Layer: 10
   m_Name: BombExplode
   m_TagString: Untagged
@@ -130,6 +131,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1ed8c97959493c4d84936ff23e10ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 15
+--- !u!114 &3485748792616030595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5183397779681512890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a75017fe17d6ac40bafd515f2253787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 3

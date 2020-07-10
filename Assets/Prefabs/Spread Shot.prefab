@@ -135,7 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 0}
   shotSpeed: 20
-  duration: 3
+  damage: 20
 --- !u!1 &5527170241651775291
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,7 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 0}
   shotSpeed: 20
-  duration: 3
+  damage: 20
 --- !u!1 &5746401047689028494
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,7 +407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 0}
   shotSpeed: 20
-  duration: 3
+  damage: 20
 --- !u!1 &7208976270704142514
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,7 +543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 0}
   shotSpeed: 20
-  duration: 3
+  damage: 20
 --- !u!1 &8970642515452569038
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,7 +679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 0}
   shotSpeed: 20
-  duration: 3
+  damage: 20
 --- !u!1 &9205425807815638001
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,7 +689,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7794755522434943755}
-  - component: {fileID: 1861472507330556157}
+  - component: {fileID: 7308701132503910015}
   m_Layer: 10
   m_Name: Spread Shot
   m_TagString: SpreadShot
@@ -716,7 +716,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1861472507330556157
+--- !u!114 &7308701132503910015
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -728,4 +728,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a75017fe17d6ac40bafd515f2253787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 3
+  duration: 2

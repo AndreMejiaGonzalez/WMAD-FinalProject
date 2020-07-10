@@ -172,4 +172,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoints: []
+  projectile: {fileID: 0}
+  hp: 35
   moveSpeed: 5
+  rotationSpeed: 0
+  fireRate: 0

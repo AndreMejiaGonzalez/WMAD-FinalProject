@@ -145,4 +145,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 0}
   shotSpeed: 20
-  duration: 3
+  damage: 10

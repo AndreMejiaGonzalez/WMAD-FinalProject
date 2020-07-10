@@ -7,13 +7,18 @@ public class SpawnerController : MonoBehaviour
     public GameObject prefab;
     public float spawnRate;
     private float spawnCounter;
+    public float probability;
 
     void Update()
     {
         spawnCounter -= Time.deltaTime;
         if(spawnCounter <= 0)
         {
-            Instantiate(prefab, transform.position, transform.rotation);
+            if(Random.value <= probability)
+            {
+                Instantiate(prefab, transform.position, transform.rotation);
+                spawnCounter = spawnRate;
+            }
             spawnCounter = spawnRate;
         }
     }
