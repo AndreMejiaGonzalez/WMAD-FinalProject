@@ -9,7 +9,6 @@ public class ExplodeController : MonoBehaviour
 
     private void Awake() {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        player.canFire = false;
     }
 
     void DoDamage(EnemyController enemy)
@@ -22,9 +21,5 @@ public class ExplodeController : MonoBehaviour
         {
             DoDamage(other.gameObject.GetComponent<EnemyController>());
         }
-    }
-
-    private void OnDestroy() {
-        player.canFire = true;
     }
 }

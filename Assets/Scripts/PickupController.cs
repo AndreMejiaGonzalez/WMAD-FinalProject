@@ -6,21 +6,28 @@ public class PickupController : MonoBehaviour
 {
     public GameObject weapon;
     public float fireRate;
+    public float speed;
+
+    private void Update() {
+        transform.position += -transform.up * speed * Time.deltaTime;
+    }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        PlayerController player = other.gameObject.GetComponent<PlayerController>();
-        if(this.gameObject.tag == "WeaponPickup")
+        if(other.gameObject.tag == "Player")
         {
-            player.projectile = weapon;
-            player.canFire = true;
-            player.fireRate = fireRate;
-        } else if(this.gameObject.tag == "LifePickup")
-        {
-            player.lives++;
-        } else if(this.gameObject.tag == "ShieldPickup")
-        {
-            player.shield.SetActive(true);
-        }
+            PlayerController player = other.gameObject.GetComponent<PlayerController>();
+            if(this.gameObject.tag == "WeaponPickup")
+            {
+                player.projectile = weapon;
+                player.fireRate = fireRate;
+            } else if(this.gameObject.tag == "LifePickup")
+            {
+                player.lives++;
+            } else if(this.gameObject.tag == "ShieldPickup")
+            {
+                player.shield.SetActive(true);
+            }
         Destroy(this.gameObject);
+        }
     }
 }

@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     public Transform firePoint;
     public int lives;
     public float moveSpeed;
-    public bool canFire;
     public float fireRate;
     private float fireCounter;
     public bool isHurt;
@@ -49,7 +48,7 @@ public class PlayerController : MonoBehaviour
     void FireHandler()
     {
         fireCounter -= Time.deltaTime;
-        if(fireCounter <= 0 && canFire)
+        if(fireCounter <= 0)
         {
             Instantiate(projectile, firePoint.position, firePoint.rotation);
             fireCounter = fireRate;
@@ -104,22 +103,18 @@ public class PlayerController : MonoBehaviour
         {
             projectile = defaultShot;
             fireRate = 0.25f;
-            canFire = true;
         }else if(Input.GetKey("2"))
         {
             projectile = waveShot;
             fireRate = 0.1f;
-            canFire = true;
         }else if(Input.GetKey("3"))
         {
             projectile = spreadShot;
             fireRate = 0.5f;
-            canFire = true;
         }else if(Input.GetKey("4"))
         {
             projectile = bombShot;
             fireRate = 1;
-            canFire = true;
         }else if(Input.GetKey("5"))
         {
             shield.SetActive(true);

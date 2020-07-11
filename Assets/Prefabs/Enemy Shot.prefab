@@ -165,5 +165,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explode: {fileID: 0}
-  shotSpeed: 5
-  duration: 3
+  shotSpeed: 7.5
+  damage: 0

@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    private Manager manager;
     private Transform playerPos;
+    private SpriteRenderer render;
     public Transform[] firePoints;
     public GameObject projectile;
+    public GameObject drop;
     public float hp;
     public float moveSpeed;
     public float rotationSpeed;
@@ -14,10 +17,16 @@ public class EnemyController : MonoBehaviour
     private Vector2 rotateSide;
     public float fireRate;
     private float fireCounter;
+    private Color normalColor;
+    private Color redColor;
 
     private void Awake()
     {
+        manager = GameObject.Find("GameManager").GetComponent<Manager>();
         playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        render = this.gameObject.GetComponent<SpriteRenderer>();
+        normalColor = new Color(255, 255, 255, 1);
+        redColor = new Color(255, 0, 0, 1);
         rotationCounter = rotationSpeed;
         rotateSide = Vector2.right;
     }
@@ -116,22 +125,42 @@ public class EnemyController : MonoBehaviour
 
     void FireHandler()
     {
-        if(firePoints.Length > 0)
+        if(this.gameObject.GetComponent<Renderer>().isVisible)
         {
-            fireCounter -= Time.deltaTime;
-            if(fireCounter <= 0)
+            if(firePoints.Length > 0)
             {
-                foreach(Transform firePoint in firePoints)
+                fireCounter -= Time.deltaTime;
+                if(fireCounter <= 0)
                 {
-                    Instantiate(projectile, firePoint.position, firePoint.rotation);
+                    foreach(Transform firePoint in firePoints)
+                    {
+                        Instantiate(projectile, firePoint.position, firePoint.rotation);
+                    }
+                    fireCounter = fireRate;
                 }
-                fireCounter = fireRate;
             }
         }
     }
 
     void Die()
     {
+        manager.enemiesDefeated++;
+        manager.enemiesTillDrop--;
+        if(manager.enemiesTillDrop == 0)
+        {
+            Instantiate(drop, transform.position, Quaternion.identity);
+            manager.randomizeDrop();
+        }
         Destroy(this.gameObject);
+    }
+
+    void resetColor()
+        {
+            render.color = normalColor;
+        }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        render.color = redColor;
+        Invoke("resetColor", (Time.deltaTime * 3));
     }
 }

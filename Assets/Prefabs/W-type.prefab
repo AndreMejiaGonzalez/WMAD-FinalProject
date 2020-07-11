@@ -173,6 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoints: []
   projectile: {fileID: 0}
+  drop: {fileID: 9071028868153686037, guid: fe70692aba4146b4d9122ab358796382, type: 3}
   hp: 35
   moveSpeed: 5
   rotationSpeed: 0

@@ -182,10 +182,11 @@ MonoBehaviour:
   - {fileID: 6395422664500909971}
   projectile: {fileID: 8046297787217614838, guid: b215d66d114e10845b2da18a52dd6021,
     type: 3}
-  hp: 100
-  moveSpeed: 5
+  drop: {fileID: 8306517961058470018, guid: 742dacd91a0edf246805301ee863f625, type: 3}
+  hp: 60
+  moveSpeed: 3
   rotationSpeed: 3
-  fireRate: 1
+  fireRate: 3
 --- !u!1 &1943067515867950875
 GameObject:
   m_ObjectHideFlags: 0
