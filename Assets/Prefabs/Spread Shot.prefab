@@ -135,7 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 0}
   shotSpeed: 20
-  damage: 20
+  damage: 30
 --- !u!1 &5527170241651775291
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,7 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 0}
   shotSpeed: 20
-  damage: 20
+  damage: 30
 --- !u!1 &5746401047689028494
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,7 +407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 0}
   shotSpeed: 20
-  damage: 20
+  damage: 30
 --- !u!1 &7208976270704142514
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,7 +543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 0}
   shotSpeed: 20
-  damage: 20
+  damage: 30
 --- !u!1 &8970642515452569038
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,7 +679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 0}
   shotSpeed: 20
-  damage: 20
+  damage: 30
 --- !u!1 &9205425807815638001
 GameObject:
   m_ObjectHideFlags: 0

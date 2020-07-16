@@ -177,13 +177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb3358cfc0168b4d994c6e3401d84e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveShot: {fileID: 5070315268531541349, guid: d6e2f73424e0d084ebd208be4a84b5a8,
-    type: 3}
-  spreadShot: {fileID: 9205425807815638001, guid: 9b686ff96871b354194a6ee63edbb0ba,
-    type: 3}
-  bombShot: {fileID: 4573112970033664661, guid: ac5bdced2a054644b9b615f3096f6a91,
-    type: 3}
   shield: {fileID: 8138250588635134311}
+  explode: {fileID: 4648640438925140965, guid: d0d8d7e0c3b6668418912d37326d7a6d, type: 3}
   defaultShot: {fileID: 6358976429963889247, guid: 5dd0f85d1afd0a24d86fa307bfde568b,
     type: 3}
   projectile: {fileID: 6358976429963889247, guid: 5dd0f85d1afd0a24d86fa307bfde568b,
@@ -194,6 +189,7 @@ MonoBehaviour:
   fireRate: 0.25
   isHurt: 0
   iFTime: 3
+  isDead: 0
 --- !u!1 &8138250589026830253
 GameObject:
   m_ObjectHideFlags: 0

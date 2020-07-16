@@ -192,10 +192,13 @@ MonoBehaviour:
   projectile: {fileID: 8046297787217614838, guid: b215d66d114e10845b2da18a52dd6021,
     type: 3}
   drop: {fileID: 6025960156072423604, guid: 617ff1ef5810ffa45b26be6aee6ce85c, type: 3}
+  scoreSprite: {fileID: 6478988862859816876, guid: ac3787259612a944cbeca997d5767642,
+    type: 3}
   hp: 50
   moveSpeed: 2.5
   rotationSpeed: 0.5
-  fireRate: 1
+  fireRate: 2.5
+  scoreYield: 100
 --- !u!1 &4653297139066980180
 GameObject:
   m_ObjectHideFlags: 0

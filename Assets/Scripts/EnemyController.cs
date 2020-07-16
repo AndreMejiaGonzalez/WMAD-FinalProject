@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
     public Transform[] firePoints;
     public GameObject projectile;
     public GameObject drop;
+    public GameObject scoreSprite;
     public float hp;
     public float moveSpeed;
     public float rotationSpeed;
@@ -19,12 +20,14 @@ public class EnemyController : MonoBehaviour
     private float fireCounter;
     private Color normalColor;
     private Color redColor;
+    public int scoreYield;
 
     private void Awake()
     {
         manager = GameObject.Find("GameManager").GetComponent<Manager>();
         playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         render = this.gameObject.GetComponent<SpriteRenderer>();
+        fireCounter = fireRate;
         normalColor = new Color(255, 255, 255, 1);
         redColor = new Color(255, 0, 0, 1);
         rotationCounter = rotationSpeed;
@@ -116,7 +119,6 @@ public class EnemyController : MonoBehaviour
                 Vector3 target = playerPos.position - transform.position;
                 transform.up = new Vector3(target.x, target.y, 0);
                 rotationCounter -= Time.deltaTime;
-                moveSpeed = 25;
             } else {
                 transform.position += transform.up * moveSpeed * Time.deltaTime;
             }
@@ -146,11 +148,13 @@ public class EnemyController : MonoBehaviour
     {
         manager.enemiesDefeated++;
         manager.enemiesTillDrop--;
+        manager.score += scoreYield;
         if(manager.enemiesTillDrop == 0)
         {
             Instantiate(drop, transform.position, Quaternion.identity);
             manager.randomizeDrop();
         }
+        Instantiate(scoreSprite, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 

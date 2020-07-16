@@ -184,7 +184,10 @@ MonoBehaviour:
   firePoints: []
   projectile: {fileID: 0}
   drop: {fileID: 8396920773443884833, guid: 75cd41cb7db7c3a40b11899d6853c8a2, type: 3}
+  scoreSprite: {fileID: 6850335347719931328, guid: f867545077b1e5740b3388bdade189fb,
+    type: 3}
   hp: 150
   moveSpeed: 15
   rotationSpeed: 1.5
   fireRate: 0
+  scoreYield: 5000

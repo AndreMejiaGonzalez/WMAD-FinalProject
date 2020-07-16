@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public GameObject waveShot;
-    public GameObject spreadShot;
-    public GameObject bombShot;
     private SpriteRenderer render;
     private Rigidbody2D rb;
     public GameObject shield;
+    public GameObject explode;
     public GameObject defaultShot;
     public GameObject projectile;
     public Transform firePoint;
@@ -20,15 +18,11 @@ public class PlayerController : MonoBehaviour
     public bool isHurt;
     private float iFCounter;
     public float iFTime;
+    public bool isDead;
 
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
         render = GetComponent<SpriteRenderer>();
-    }
-
-    void Start()
-    {
-        
     }
 
     void Update()
@@ -36,28 +30,31 @@ public class PlayerController : MonoBehaviour
         movementHandler();
         FireHandler();
         iFHandler();
-        ChangeShot();
     }
 
     void movementHandler()
     {
+        
         Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         rb.velocity = movement * moveSpeed;
     }
 
     void FireHandler()
     {
-        fireCounter -= Time.deltaTime;
-        if(fireCounter <= 0)
+        if(!isDead)
         {
-            Instantiate(projectile, firePoint.position, firePoint.rotation);
-            fireCounter = fireRate;
+            fireCounter -= Time.deltaTime;
+            if(fireCounter <= 0)
+            {
+                Instantiate(projectile, firePoint.position, firePoint.rotation);
+                fireCounter = fireRate;
+            }
         }
     }
 
     void iFHandler()
     {
-        if(isHurt)
+        if(isHurt && !isDead)
         {
             this.gameObject.layer = 13;
             if(render.color.a == 0.5f)
@@ -78,8 +75,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void Die()
+    {
+        if(lives == 0)
+        {
+            isDead = true;
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            render.color = new Color(255, 0, 0, 1);
+            Instantiate(explode, transform.position, Quaternion.identity);
+            Application.Quit();
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D other) {
-        if(other.gameObject.layer != 11 && other.gameObject.layer != 9)
+        if(other.gameObject.layer != 11 && other.gameObject.layer != 9 && !isDead)
         {
             if(shield.activeSelf == true)
             {
@@ -94,30 +103,7 @@ public class PlayerController : MonoBehaviour
                 fireRate = 0.25f;
             }
             isHurt = true;
-        }
-    }
-
-    void ChangeShot()
-    {
-        if(Input.GetKey("1"))
-        {
-            projectile = defaultShot;
-            fireRate = 0.25f;
-        }else if(Input.GetKey("2"))
-        {
-            projectile = waveShot;
-            fireRate = 0.1f;
-        }else if(Input.GetKey("3"))
-        {
-            projectile = spreadShot;
-            fireRate = 0.5f;
-        }else if(Input.GetKey("4"))
-        {
-            projectile = bombShot;
-            fireRate = 1;
-        }else if(Input.GetKey("5"))
-        {
-            shield.SetActive(true);
+            Die();
         }
     }
 }
