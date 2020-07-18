@@ -16,10 +16,20 @@ public class ExplodeController : MonoBehaviour
         enemy.hp -= damage;
     }
 
+    void DoDamage(BossSegment segment)
+    {
+        segment.hp -= damage;
+    }
+
     private void OnCollisionStay2D(Collision2D other) {
         if(other.gameObject.layer == 14)
         {
-            DoDamage(other.gameObject.GetComponent<EnemyController>());
+            if(other.gameObject.tag == "Boss")
+            {
+                DoDamage(other.gameObject.GetComponent<BossSegment>());
+            } else {
+                DoDamage(other.gameObject.GetComponent<EnemyController>());
+            }
         }
     }
 }

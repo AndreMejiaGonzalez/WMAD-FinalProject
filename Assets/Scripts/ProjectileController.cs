@@ -17,6 +17,11 @@ public class ProjectileController : MonoBehaviour
     {
         enemy.hp -= damage;
     }
+
+    void DoDamage(BossSegment segment)
+    {
+        segment.hp -= damage;
+    }
     
     private void OnCollisionEnter2D(Collision2D other) {
         if(this.gameObject.tag == "BombShot" && other.gameObject.tag != "Kill Plane")
@@ -29,7 +34,12 @@ public class ProjectileController : MonoBehaviour
         }
         if(this.gameObject.tag != "BombShot" && other.gameObject.layer == 14)
         {
-            DoDamage(other.gameObject.GetComponent<EnemyController>());
+            if(other.gameObject.tag == "Boss")
+            {
+                DoDamage(other.gameObject.GetComponent<BossSegment>());
+            } else {
+                DoDamage(other.gameObject.GetComponent<EnemyController>());
+            }
         }
     }
 }

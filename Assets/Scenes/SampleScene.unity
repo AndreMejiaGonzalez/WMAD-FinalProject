@@ -443,6 +443,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 388633629}
   m_CullTransparentMesh: 0
+--- !u!1 &402487253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 402487254}
+  m_Layer: 0
+  m_Name: Boss-Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &402487254
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 402487253}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: 0, y: 8.02, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1782082248}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!114 &454852604 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8138250587739271666, guid: d1a1beef14d21e649ba96381331aadfa,
@@ -5389,11 +5419,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dbb8e021e934a247be76a2228480c2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boss: {fileID: 2128576632827534542, guid: 6c2ab21b1cb66f348ba240e66722cdee, type: 3}
+  spawner: {fileID: 402487254}
   _state: 0
   startupTime: 5
   enemiesDefeated: 0
   enemiesTillDrop: 0
+  enemiesTillBoss: 50
   score: 0
+  bossSpawned: 0
 --- !u!114 &623663826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10905,6 +10939,7 @@ Transform:
   - {fileID: 484798973}
   - {fileID: 1005731531}
   - {fileID: 336672702}
+  - {fileID: 402487254}
   m_Father: {fileID: 623663824}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11174,7 +11209,7 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -2.12, y: 9.1}
+  m_Offset: {x: -2.12, y: 11.25}
   m_EdgeRadius: 0
   m_Points:
   - {x: -21.84, y: 0}
