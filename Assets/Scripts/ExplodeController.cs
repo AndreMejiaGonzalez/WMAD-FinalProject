@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ExplodeController : MonoBehaviour
 {
-    PlayerController player;
+    private Manager manager;
     public float damage;
 
     private void Awake() {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        manager = GameObject.Find("GameManager").GetComponent<Manager>();
     }
 
     void DoDamage(EnemyController enemy)
@@ -18,7 +18,7 @@ public class ExplodeController : MonoBehaviour
 
     void DoDamage(BossSegment segment)
     {
-        segment.hp -= damage;
+        segment.hp -= (damage / manager.globalMultiplier);
     }
 
     private void OnCollisionStay2D(Collision2D other) {

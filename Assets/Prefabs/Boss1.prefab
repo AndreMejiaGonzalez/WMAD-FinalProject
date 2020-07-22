@@ -805,7 +805,19 @@ MonoBehaviour:
     type: 3}
   shieldDrop: {fileID: 8306517961058470018, guid: 742dacd91a0edf246805301ee863f625,
     type: 3}
+  projectile: {fileID: 8046297787217614838, guid: b215d66d114e10845b2da18a52dd6021,
+    type: 3}
+  firePoints:
+  - {fileID: 7567285406443674923}
+  - {fileID: 2302296278613711700}
+  - {fileID: 1191820386485758189}
+  headFirePoints:
+  - {fileID: 6324028242941040435}
+  - {fileID: 4277539350577162103}
+  - {fileID: 6126018597839878973}
   moveSpeed: 5
+  headIsEnabled: 0
+  fireRate: 3
 --- !u!1 &6253829018082060232
 GameObject:
   m_ObjectHideFlags: 0

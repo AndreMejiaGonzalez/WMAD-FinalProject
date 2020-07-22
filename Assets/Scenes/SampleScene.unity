@@ -5428,6 +5428,7 @@ MonoBehaviour:
   enemiesTillBoss: 50
   score: 0
   bossSpawned: 0
+  globalMultiplier: 1
 --- !u!114 &623663826
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,6 +15,8 @@ public class EnemyController : MonoBehaviour
     public float moveSpeed;
     public float rotationSpeed;
     private float rotationCounter;
+    private Vector2 right;
+    private Vector2 left;
     private Vector2 rotateSide;
     public float fireRate;
     private float fireCounter;
@@ -31,7 +33,15 @@ public class EnemyController : MonoBehaviour
         normalColor = new Color(255, 255, 255, 1);
         redColor = new Color(255, 0, 0, 1);
         rotationCounter = rotationSpeed;
-        rotateSide = Vector2.right;
+        right = Vector2.right;
+        left = -Vector2.right;
+        if(Random.value <= .5f)
+        {
+            rotateSide = right;
+        } else
+        {
+            rotateSide = left;
+        }
     }
 
     void Update()
@@ -88,7 +98,12 @@ public class EnemyController : MonoBehaviour
         rotationCounter -= Time.deltaTime;
         if(rotationCounter <= 0)
         {
-            rotateSide = rotateSide * -1;
+            if(rotateSide == left)
+            {
+                rotateSide = right;
+            } else {
+                rotateSide = left;
+            }
             rotationCounter = rotationSpeed;
         }
         transform.Translate((Vector2.down + rotateSide) * moveSpeed * Time.deltaTime, Space.World);
@@ -100,9 +115,12 @@ public class EnemyController : MonoBehaviour
         {
             transform.position += transform.up * moveSpeed * Time.deltaTime;
         } else {
-            if(transform.position.x >= 10 || transform.position.x <= -10)
+            if(transform.position.x >= 10)
             {
-                rotateSide = rotateSide * -1;
+                rotateSide = left;
+            } else if(transform.position.x <= -10)
+            {
+                rotateSide = right;
             }
             transform.position += new Vector3(rotateSide.x, rotateSide.y, 0) *moveSpeed * Time.deltaTime;
         }
@@ -131,7 +149,7 @@ public class EnemyController : MonoBehaviour
         {
             if(firePoints.Length > 0)
             {
-                fireCounter -= Time.deltaTime;
+                fireCounter -= (Time.deltaTime * manager.globalMultiplier);
                 if(fireCounter <= 0)
                 {
                     foreach(Transform firePoint in firePoints)
@@ -153,6 +171,10 @@ public class EnemyController : MonoBehaviour
         {
             Instantiate(drop, transform.position, Quaternion.identity);
             manager.randomizeDrop();
+        }
+        if(manager.enemiesDefeated % manager.enemiesTillBoss == 0)
+        {
+            manager.spawnBoss();
         }
         Instantiate(scoreSprite, transform.position, Quaternion.identity);
         Destroy(this.gameObject);

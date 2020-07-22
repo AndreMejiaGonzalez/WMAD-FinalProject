@@ -20,6 +20,7 @@ public class Manager : MonoBehaviour
     public int enemiesTillBoss;
     public int score;
     public bool bossSpawned;
+    public float globalMultiplier;
 
     private void Awake() {
         randomizeDrop();
@@ -36,11 +37,6 @@ public class Manager : MonoBehaviour
                 Time.timeScale = 1;
             }
         }
-        if(enemiesDefeated > 0 && enemiesDefeated % enemiesTillBoss == 0)
-        {
-            _state = GameState.Boss;
-            spawnBoss();
-        }
     }
 
     void startGame()
@@ -53,10 +49,11 @@ public class Manager : MonoBehaviour
         enemiesTillDrop = Random.Range(5, 20);
     }
 
-    void spawnBoss()
+    public void spawnBoss()
     {
         if(!bossSpawned)
         {
+            _state = GameState.Boss;
             bossSpawned = true;
             Instantiate(boss, spawner.position, spawner.rotation);
         }

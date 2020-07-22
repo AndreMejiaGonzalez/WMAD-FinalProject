@@ -32,6 +32,7 @@ public class BossSegment : MonoBehaviour
             }
         }
         controller.segments.RemoveAt(indexToRemove);
+        controller.moveSpeed += 5;
         if(controller.segments.Count == 1)
         {
             controller.enableHead();

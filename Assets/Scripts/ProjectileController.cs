@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class ProjectileController : MonoBehaviour
 {
+    private Manager manager;
     public GameObject explode;
     public float shotSpeed;
     public float damage;
+
+    private void Awake() {
+        manager = GameObject.Find("GameManager").GetComponent<Manager>();
+    }
 
     void Update()
     {
@@ -20,7 +25,7 @@ public class ProjectileController : MonoBehaviour
 
     void DoDamage(BossSegment segment)
     {
-        segment.hp -= damage;
+        segment.hp -= (damage / manager.globalMultiplier);
     }
     
     private void OnCollisionEnter2D(Collision2D other) {
