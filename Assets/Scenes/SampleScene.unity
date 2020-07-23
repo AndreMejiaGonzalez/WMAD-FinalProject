@@ -5421,7 +5421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boss: {fileID: 2128576632827534542, guid: 6c2ab21b1cb66f348ba240e66722cdee, type: 3}
   spawner: {fileID: 402487254}
-  _state: 0
+  _state: 2
   startupTime: 5
   enemiesDefeated: 0
   enemiesTillDrop: 0
@@ -11319,6 +11319,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Ship
       objectReference: {fileID: 0}
+    - target: {fileID: 8138250587739271666, guid: d1a1beef14d21e649ba96381331aadfa,
+        type: 3}
+      propertyPath: fireRate
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 8138250587739271667, guid: d1a1beef14d21e649ba96381331aadfa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11373,6 +11378,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8138250587739271669, guid: d1a1beef14d21e649ba96381331aadfa,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1a1beef14d21e649ba96381331aadfa, type: 3}

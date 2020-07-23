@@ -6,6 +6,7 @@ public class BossSegment : MonoBehaviour
 {
     public BossController controller;
     private SpriteRenderer render;
+    public Transform startPos;
     public float hp;
     public int index;
     public bool isHead;
