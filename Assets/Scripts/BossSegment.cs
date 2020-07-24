@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossSegment : MonoBehaviour
 {
+    private Manager manager;
     public BossController controller;
     private SpriteRenderer render;
     public Transform startPos;
@@ -12,6 +13,7 @@ public class BossSegment : MonoBehaviour
     public bool isHead;
 
     private void Awake() {
+        manager = GameObject.Find("GameManager").GetComponent<Manager>();
         render = this.gameObject.GetComponent<SpriteRenderer>();
     }
 
@@ -33,11 +35,12 @@ public class BossSegment : MonoBehaviour
             }
         }
         controller.segments.RemoveAt(indexToRemove);
-        controller.moveSpeed += 5;
+        controller.moveSpeed += 1.5f;
         if(controller.segments.Count == 1)
         {
             controller.enableHead();
         }
+        manager.score += 2000;
         Destroy(this.gameObject);
     }
 

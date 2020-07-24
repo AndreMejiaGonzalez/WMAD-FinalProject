@@ -8,13 +8,20 @@ public class HUDController : MonoBehaviour
 {
     public Manager manager;
     public PlayerController player;
+    public BossController boss;
     public Text score;
     public Text lives;
+    public GameObject bossBar;
+    public Transform bossHP;
 
     void Update()
     {
         setScore();
         setLives();
+        if(boss != null)
+        {
+            setSize(boss.normalizedHP);
+        }
     }
 
     void setScore()
@@ -37,5 +44,15 @@ public class HUDController : MonoBehaviour
             tmp += "0";
         }
         lives.text = ("x" + tmp + currentLives);
+    }
+
+    public void setSize(float sizeNormalized)
+    {
+        bossHP.localScale = new Vector3(sizeNormalized, 1f);
+    }
+
+    public void setBossBarState(bool state)
+    {
+        bossBar.SetActive(state);
     }
 }

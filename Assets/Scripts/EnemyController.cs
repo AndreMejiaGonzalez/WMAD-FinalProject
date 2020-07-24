@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
     public GameObject projectile;
     public GameObject drop;
     public GameObject scoreSprite;
+    public GameObject warningSprite;
     public float hp;
     public float moveSpeed;
     public float rotationSpeed;
@@ -174,7 +175,9 @@ public class EnemyController : MonoBehaviour
         }
         if(manager.enemiesDefeated % manager.enemiesTillBoss == 0)
         {
-            manager.spawnBoss();
+            manager._state = Manager.GameState.Boss;
+            manager.callSpawnBoss(5);
+            Instantiate(warningSprite, Vector3.zero, Quaternion.identity);
         }
         Instantiate(scoreSprite, transform.position, Quaternion.identity);
         Destroy(this.gameObject);

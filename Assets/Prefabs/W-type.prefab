@@ -176,6 +176,8 @@ MonoBehaviour:
   drop: {fileID: 9071028868153686037, guid: fe70692aba4146b4d9122ab358796382, type: 3}
   scoreSprite: {fileID: 8511760490664394506, guid: 3cf004da02d84b14f97177851cb25665,
     type: 3}
+  warningSprite: {fileID: 2907007323819655702, guid: dd70d828c26a1284a873719ba1db4cb7,
+    type: 3}
   hp: 35
   moveSpeed: 3.5
   rotationSpeed: 0

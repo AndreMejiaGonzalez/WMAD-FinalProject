@@ -11,6 +11,7 @@ public class Manager : MonoBehaviour
         Boss
     }
 
+    public HUDController HUD;
     public GameObject boss;
     public Transform spawner;
     public GameState _state;
@@ -49,13 +50,23 @@ public class Manager : MonoBehaviour
         enemiesTillDrop = Random.Range(5, 20);
     }
 
-    public void spawnBoss()
+    void spawnBoss()
     {
         if(!bossSpawned)
         {
-            _state = GameState.Boss;
             bossSpawned = true;
             Instantiate(boss, spawner.position, spawner.rotation);
+            HUD.setBossBarState(true);
         }
+    }
+
+    public void callStartGame(float time)
+    {
+        Invoke("startGame", time);
+    }
+
+    public void callSpawnBoss(float time)
+    {
+        Invoke("spawnBoss", time);
     }
 }

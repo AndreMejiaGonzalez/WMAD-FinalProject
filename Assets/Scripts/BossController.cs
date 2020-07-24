@@ -6,6 +6,7 @@ public class BossController : MonoBehaviour
 {
     private Manager manager;
     private Transform playerPos;
+    public HUDController HUD;
     public List<BossSegment> segments;
     public BossSegment head;
     public BossSegment[] claws;
@@ -17,21 +18,24 @@ public class BossController : MonoBehaviour
     private Vector3 right;
     private Vector3 left;
     private Vector3 rotateSide;
+    public float normalizedHP;
     public float moveSpeed;
     public bool headIsEnabled;
     public float fireRate;
     private float fireCounter;
     public float clawAttackRate;
     private float clawAttackCounter;
-    public bool clawAttackInProgress;
-    public bool clawReachedTarget;
-    public Vector3 clawAttackTarget;
-    public int clawToMove;
+    private bool clawAttackInProgress;
+    private bool clawReachedTarget;
+    private Vector3 clawAttackTarget;
+    private int clawToMove;
     public float multiplierAddition;
 
     private void Awake() {
         manager = GameObject.Find("GameManager").GetComponent<Manager>();
         playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        HUD = GameObject.Find("GameManager").GetComponent<HUDController>();
+        HUD.boss = this;
         right = transform.right;
         left = -transform.right;
         if(Random.value <= .5f)
@@ -52,6 +56,20 @@ public class BossController : MonoBehaviour
         fireHandler();
         setClawAttackVariables();
         clawMovement();
+        getNormalizedHP();
+    }
+
+    void getNormalizedHP()
+    {
+        float tmp = 0;
+        foreach(BossSegment segment in segments)
+        {
+            if(segment != null)
+            {
+                tmp += segment.hp;
+            }
+        }
+        normalizedHP = tmp / 3000;
     }
 
     void movement()
@@ -76,7 +94,7 @@ public class BossController : MonoBehaviour
     {
         if(firePoints.Length > 0)
         {
-            fireCounter -= (Time.deltaTime * manager.globalMultiplier);
+            fireCounter -= Time.deltaTime;
             if(fireCounter <= 0)
             {
                 fireCounter = fireRate;
@@ -105,7 +123,7 @@ public class BossController : MonoBehaviour
     {
         if(!clawAttackInProgress && (claws[0] != null || claws[1] != null))
         {
-            clawAttackCounter -= (Time.deltaTime * manager.globalMultiplier);
+            clawAttackCounter -= Time.deltaTime;
             if(clawAttackCounter <= 0)
             {
                 clawAttackTarget = playerPos.position;
@@ -129,7 +147,6 @@ public class BossController : MonoBehaviour
                 }
                 clawAttackInProgress = true;
                 clawAttackCounter = clawAttackRate;
-                Debug.Log("shit is set");
             }
         }
     }
@@ -143,28 +160,24 @@ public class BossController : MonoBehaviour
             {
                 clawAttackInProgress = false;
                 clawReachedTarget = false;
+                return;
             }
 
-            Debug.Log("We doin it");
             if(!clawReachedTarget)
             {
-                Debug.Log("Moving to target");
                 claws[clawToMove].transform.position =
                 Vector3.MoveTowards(claws[clawToMove].transform.position, clawAttackTarget, step);
                 if(claws[clawToMove].transform.position == clawAttackTarget)
                 {
-                    Debug.Log("Target reached");
                     clawReachedTarget = true;
                 }
             } else
             {
-                Debug.Log("Moving to starting position");
                 claws[clawToMove].transform.position =
                 Vector3.MoveTowards(claws[clawToMove].transform.position, claws[clawToMove].startPos.position
                 , step);
                 if(claws[clawToMove].transform.position == claws[clawToMove].startPos.position)
                 {
-                    Debug.Log("In starting position");
                     clawAttackInProgress = false;
                     clawReachedTarget = false;
                 }
@@ -180,13 +193,14 @@ public class BossController : MonoBehaviour
 
     public void die()
     {
-        manager._state = Manager.GameState.Active;
         manager.bossSpawned = false;
+        HUD.setBossBarState(false);
         Instantiate(lifeDrop, new Vector3((transform.position.x - 2), transform.position.y, 0)
         , Quaternion.identity);
         Instantiate(shieldDrop, new Vector3((transform.position.x + 2), transform.position.y, 0)
         , Quaternion.identity);
         manager.globalMultiplier += multiplierAddition;
+        manager.callStartGame(4);
         Destroy(this.gameObject);
     }
 }

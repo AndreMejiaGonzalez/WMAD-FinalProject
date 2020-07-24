@@ -801,6 +801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d1a604817170b4fa5cc8cb5bf9d5f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HUD: {fileID: 0}
   segments:
   - {fileID: 6325385009818970980}
   - {fileID: 84175732411107904}
@@ -824,15 +825,12 @@ MonoBehaviour:
   - {fileID: 6324028242941040435}
   - {fileID: 4277539350577162103}
   - {fileID: 6126018597839878973}
+  normalizedHP: 0
   moveSpeed: 5
   headIsEnabled: 0
   fireRate: 3
   clawAttackRate: 2.5
-  clawAttackInProgress: 0
-  clawReachedTarget: 0
-  clawAttackTarget: {x: 0, y: 0, z: 0}
-  clawToMove: 0
-  multiplierAddition: 0.25
+  multiplierAddition: 0.1
 --- !u!1 &5529445367526716020
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class SpawnerController : MonoBehaviour
     private Manager manager;
     public GameObject prefab;
     public float spawnRate;
-    private float spawnCounter;
+    public float spawnCounter;
     public float probability;
 
     private void Awake() {
