@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Manager manager;
+    public Joystick joystick;
     private SpriteRenderer render;
     private Rigidbody2D rb;
     public GameObject shield;
@@ -35,10 +36,8 @@ public class PlayerController : MonoBehaviour
     }
 
     void movementHandler()
-    {
-        
-        Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        rb.velocity = movement * moveSpeed;
+    {   
+        rb.velocity = joystick.Direction * moveSpeed;
     }
 
     void FireHandler()

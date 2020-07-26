@@ -177,6 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb3358cfc0168b4d994c6e3401d84e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  joystick: {fileID: 0}
   shield: {fileID: 8138250588635134311}
   explode: {fileID: 4648640438925140965, guid: d0d8d7e0c3b6668418912d37326d7a6d, type: 3}
   defaultShot: {fileID: 6358976429963889247, guid: 5dd0f85d1afd0a24d86fa307bfde568b,
