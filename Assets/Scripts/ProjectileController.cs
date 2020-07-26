@@ -25,7 +25,12 @@ public class ProjectileController : MonoBehaviour
 
     void DoDamage(BossSegment segment)
     {
-        segment.hp -= (damage / manager.globalMultiplier);
+        if(damage / manager.globalMultiplier < 1)
+        {
+            segment.hp -= 1;
+        } else {
+            segment.hp -= (damage / manager.globalMultiplier);
+        }
     }
     
     private void OnCollisionEnter2D(Collision2D other) {

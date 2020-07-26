@@ -41,6 +41,10 @@ public class BossSegment : MonoBehaviour
             controller.enableHead();
         }
         manager.score += 2000;
+        if(isHead)
+        {
+            controller.die();
+        }
         Destroy(this.gameObject);
     }
 
@@ -52,12 +56,5 @@ public class BossSegment : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) {
         render.color = new Color(255, 0, 0, 1);
         Invoke("resetColor", (Time.deltaTime * 3));
-    }
-
-    private void OnDestroy() {
-        if(isHead)
-        {
-            controller.die();
-        }
     }
 }

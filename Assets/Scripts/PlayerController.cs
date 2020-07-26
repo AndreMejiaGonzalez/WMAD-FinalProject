@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private Manager manager;
     private SpriteRenderer render;
     private Rigidbody2D rb;
     public GameObject shield;
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public bool isDead;
 
     private void Awake() {
+        manager = GameObject.Find("GameManager").GetComponent<Manager>();
         rb = GetComponent<Rigidbody2D>();
         render = GetComponent<SpriteRenderer>();
     }
@@ -83,7 +85,7 @@ public class PlayerController : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             render.color = new Color(255, 0, 0, 1);
             Instantiate(explode, transform.position, Quaternion.identity);
-            Application.Quit();
+            Destroy(this.gameObject, 3);
         }
     }
 
@@ -105,5 +107,9 @@ public class PlayerController : MonoBehaviour
             isHurt = true;
             Die();
         }
+    }
+
+    private void OnDestroy() {
+        manager.changeToGameOverScene();
     }
 }
