@@ -719,10 +719,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: 587b4917-3e88-4d13-bdc8-7fdc82517229
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: WMAD-FinalProject
+  organizationId: andremejia
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

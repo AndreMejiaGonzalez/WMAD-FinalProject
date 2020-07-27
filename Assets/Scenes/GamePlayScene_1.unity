@@ -5879,6 +5879,7 @@ GameObject:
   - component: {fileID: 623663824}
   - component: {fileID: 623663825}
   - component: {fileID: 623663826}
+  - component: {fileID: 623663827}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -5920,6 +5921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dbb8e021e934a247be76a2228480c2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  adManager: {fileID: 623663827}
   HUD: {fileID: 623663826}
   boss: {fileID: 2128576632827534542, guid: 6c2ab21b1cb66f348ba240e66722cdee, type: 3}
   cockroachBoss: {fileID: 7029538816113707953, guid: d6a3cddadfaae354693d0beae5046b6b,
@@ -5952,6 +5954,19 @@ MonoBehaviour:
   lives: {fileID: 1890527128}
   bossBar: {fileID: 1995123936}
   bossHP: {fileID: 671178026}
+--- !u!114 &623663827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623663823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd353257d4cb53c4d9b090d971e9238e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testMode: 0
 --- !u!4 &626842548 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8138250587739271667, guid: d1a1beef14d21e649ba96381331aadfa,

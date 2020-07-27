@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 197901723}
   - component: {fileID: 197901725}
   - component: {fileID: 197901724}
+  - component: {fileID: 197901726}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -230,8 +231,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dbb8e021e934a247be76a2228480c2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  adManager: {fileID: 197901726}
   HUD: {fileID: 0}
   boss: {fileID: 0}
+  cockroachBoss: {fileID: 0}
   spawner: {fileID: 0}
   _state: 0
   startupTime: 0
@@ -241,6 +244,19 @@ MonoBehaviour:
   score: 0
   bossSpawned: 0
   globalMultiplier: 0
+--- !u!114 &197901726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197901722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd353257d4cb53c4d9b090d971e9238e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testMode: 0
 --- !u!1 &357151750
 GameObject:
   m_ObjectHideFlags: 0

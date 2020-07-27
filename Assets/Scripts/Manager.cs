@@ -12,6 +12,7 @@ public class Manager : MonoBehaviour
         Boss
     }
 
+    public AdsController adManager;
     public HUDController HUD;
     private ScoreKeeper keeper;
     public GameObject boss;
@@ -95,6 +96,8 @@ public class Manager : MonoBehaviour
 
     public void changeToTitleScene()
     {
+        adManager.showInterstitial();
+
         SceneManager.LoadScene("TitleScene_0", LoadSceneMode.Single);
     }
 
@@ -106,6 +109,8 @@ public class Manager : MonoBehaviour
 
     public void changeToGameOverScene()
     {
+        adManager.showInterstitial();
+
         if(score > PlayerPrefs.GetInt("HighScore"))
         {
             PlayerPrefs.SetInt("HighScore", score);
