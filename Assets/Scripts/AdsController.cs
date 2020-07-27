@@ -6,11 +6,10 @@ using UnityEngine.Advertisements;
 public class AdsController : MonoBehaviour
 {
     private string GooglePlay_ID = "3734973";
-    [SerializeField] private bool testMode;
 
     void Start()
     {
-        Advertisement.Initialize(GooglePlay_ID, testMode);
+        Advertisement.Initialize(GooglePlay_ID, false);
     }
 
     public void showInterstitial()
