@@ -16,6 +16,7 @@ public class PickupController : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
+            player.sfx.playClip(3);
             if(this.gameObject.tag == "WeaponPickup")
             {
                 player.projectile = weapon;

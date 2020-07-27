@@ -5,10 +5,12 @@ using UnityEngine;
 public class ExplodeController : MonoBehaviour
 {
     private Manager manager;
+    public SFX sfx;
     public float damage;
 
     private void Awake() {
         manager = GameObject.Find("GameManager").GetComponent<Manager>();
+        sfx.playClip(0);
     }
 
     void DoDamage(EnemyController enemy)

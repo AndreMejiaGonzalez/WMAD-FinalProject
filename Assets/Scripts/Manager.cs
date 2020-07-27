@@ -15,6 +15,7 @@ public class Manager : MonoBehaviour
     public HUDController HUD;
     private ScoreKeeper keeper;
     public GameObject boss;
+    public GameObject cockroachBoss;
     public Transform spawner;
     public GameState _state;
     public float startupTime;
@@ -66,6 +67,14 @@ public class Manager : MonoBehaviour
 
     void spawnBoss()
     {
+        if(System.DateTime.UtcNow.ToString("dd MMM") == "31 Oct")
+        {
+            bossSpawned = true;
+            Instantiate(cockroachBoss, Vector3.zero, Quaternion.identity);
+            HUD.setBossBarState(true);
+            return;
+        }
+
         if(!bossSpawned)
         {
             bossSpawned = true;
@@ -84,6 +93,11 @@ public class Manager : MonoBehaviour
         Invoke("spawnBoss", time);
     }
 
+    public void changeToTitleScene()
+    {
+        SceneManager.LoadScene("TitleScene_0", LoadSceneMode.Single);
+    }
+
     public void changeToGameplayScene()
     {
         keeper.score = 0;
@@ -98,5 +112,10 @@ public class Manager : MonoBehaviour
             keeper.highestScore = PlayerPrefs.GetInt("HighScore");
         }
         SceneManager.LoadScene("GameOverScene_2", LoadSceneMode.Single);
+    }
+
+    public void endGame(float time)
+    {
+        Invoke("changeToGameOverScene", time);
     }
 }

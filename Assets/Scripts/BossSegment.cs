@@ -5,6 +5,7 @@ using UnityEngine;
 public class BossSegment : MonoBehaviour
 {
     private Manager manager;
+    public SFX sfx;
     public BossController controller;
     private SpriteRenderer render;
     public Transform startPos;
@@ -54,6 +55,10 @@ public class BossSegment : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
+        if(sfx != null)
+        {
+            sfx.playClip(0);
+        }
         render.color = new Color(255, 0, 0, 1);
         Invoke("resetColor", (Time.deltaTime * 3));
     }

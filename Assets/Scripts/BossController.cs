@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossController : MonoBehaviour
 {
     private Manager manager;
+    public SFX sfx;
     private Transform playerPos;
     public HUDController HUD;
     public List<BossSegment> segments;
@@ -19,6 +21,7 @@ public class BossController : MonoBehaviour
     private Vector3 left;
     private Vector3 rotateSide;
     public float normalizedHP;
+    public int type;
     public float moveSpeed;
     public bool headIsEnabled;
     public float fireRate;
@@ -48,14 +51,23 @@ public class BossController : MonoBehaviour
         head.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         fireCounter = fireRate;
         clawAttackCounter = clawAttackRate;
+
+        if(type == 2)
+        {
+            PlayerPrefs.SetFloat("MusicVolume", 0);
+            PlayerPrefs.SetFloat("SFXVolume", 0);
+        }
     }
 
     void Update()
     {
-        movement();
-        fireHandler();
-        setClawAttackVariables();
-        clawMovement();
+        if(type == 1)
+        {
+            movement();
+            fireHandler();
+            setClawAttackVariables();
+            clawMovement();
+        }
         getNormalizedHP();
     }
 
@@ -98,6 +110,10 @@ public class BossController : MonoBehaviour
             if(fireCounter <= 0)
             {
                 fireCounter = fireRate;
+                if(sfx != null)
+                {
+                    sfx.playClip(0);
+                }
                 foreach(Transform firePoint in firePoints)
                 {
                     if(firePoint != null)
@@ -107,6 +123,10 @@ public class BossController : MonoBehaviour
                 }
                 if(headIsEnabled)
                 {
+                    if(sfx != null)
+                    {
+                    sfx.playClip(0);
+                    }
                     foreach(Transform firePoint in headFirePoints)
                     {
                         if(firePoint != null)
@@ -193,6 +213,13 @@ public class BossController : MonoBehaviour
 
     public void die()
     {
+        if(type == 2)
+        {
+            PlayerPrefs.SetFloat("MusicVolume", 1);
+            PlayerPrefs.SetFloat("SFXVolume", 1);
+            SceneManager.LoadScene("ThanksScene_3", LoadSceneMode.Single);
+        }
+
         manager.bossSpawned = false;
         HUD.setBossBarState(false);
         Instantiate(lifeDrop, new Vector3((transform.position.x - 2), transform.position.y, 0)

@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     private Manager manager;
+    public SFX sfx;
     private Transform playerPos;
     private SpriteRenderer render;
     public Transform[] firePoints;
@@ -153,6 +154,7 @@ public class EnemyController : MonoBehaviour
                 fireCounter -= (Time.deltaTime * manager.globalMultiplier);
                 if(fireCounter <= 0)
                 {
+                    sfx.playClip(0);
                     foreach(Transform firePoint in firePoints)
                     {
                         Instantiate(projectile, firePoint.position, firePoint.rotation);
@@ -189,6 +191,7 @@ public class EnemyController : MonoBehaviour
         }
 
     private void OnCollisionEnter2D(Collision2D other) {
+        sfx.playClip(1);
         render.color = redColor;
         Invoke("resetColor", (Time.deltaTime * 3));
     }

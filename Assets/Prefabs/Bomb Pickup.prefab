@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb4e4a50054b54e4587ada545f237c53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfx: {fileID: 0}
   weapon: {fileID: 4573112970033664661, guid: ac5bdced2a054644b9b615f3096f6a91, type: 3}
   fireRate: 1
   speed: 1

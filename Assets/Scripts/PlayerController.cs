@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private Manager manager;
     public Joystick joystick;
+    public SFX sfx;
     private SpriteRenderer render;
     private Rigidbody2D rb;
     public GameObject shield;
@@ -47,6 +48,12 @@ public class PlayerController : MonoBehaviour
             fireCounter -= Time.deltaTime;
             if(fireCounter <= 0)
             {
+                if(fireRate == 0.1f)
+                {
+                    sfx.playClip(1);
+                } else {
+                    sfx.playClip(0);
+                }
                 Instantiate(projectile, firePoint.position, firePoint.rotation);
                 fireCounter = fireRate;
             }
@@ -84,7 +91,8 @@ public class PlayerController : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             render.color = new Color(255, 0, 0, 1);
             Instantiate(explode, transform.position, Quaternion.identity);
-            Destroy(this.gameObject, 3);
+            sfx.playClipLooping();
+            manager.endGame(3);
         }
     }
 
@@ -103,12 +111,9 @@ public class PlayerController : MonoBehaviour
                 projectile = defaultShot;
                 fireRate = 0.25f;
             }
+            sfx.playClip(2);
             isHurt = true;
             Die();
         }
-    }
-
-    private void OnDestroy() {
-        manager.changeToGameOverScene();
     }
 }
