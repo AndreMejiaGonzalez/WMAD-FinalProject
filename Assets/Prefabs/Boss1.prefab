@@ -841,7 +841,7 @@ MonoBehaviour:
   headIsEnabled: 0
   fireRate: 3
   clawAttackRate: 2.5
-  multiplierAddition: 0.1
+  multiplierAddition: 0.2
 --- !u!1 &5529445367526716020
 GameObject:
   m_ObjectHideFlags: 0
